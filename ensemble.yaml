@@ -1,0 +1,67 @@
+apiVersion: unfurl/v1alpha1
+kind: Ensemble
++include:
+  file: ensemble-template.yaml
+  repository: spec
+metadata:
+  uri: git-local://57018f8e0a95536c0f1d3ba74276fa3be6b243cc:/ensemble.yaml
+spec:
+  service_template:
+    repositories:
+    # Files that are shared across ensemble instances should be placed in this "spec" repository
+      spec:
+        url: git-local://82e2a7b7d504259a25f5a8885d5fb27011352802:/.
+lock:
+  runtime:
+    unfurl:
+      version: 0.3.3
+      digest: 3b218ec
+  repositories:
+  - url: git-local://82e2a7b7d504259a25f5a8885d5fb27011352802:/.
+    revision: 5170415058d610089f2cbae0ae8e8eeabcdea9f5-dirty
+    initial: 82e2a7b7d504259a25f5a8885d5fb27011352802
+    name: spec
+  - url: file:/root/.unfurl_home/.venv/lib/python3.6/site-packages/unfurl
+    revision: ''
+    initial: ''
+    name: unfurl
+  - url: git-local://57018f8e0a95536c0f1d3ba74276fa3be6b243cc:/.
+    revision: fe3c593b655c1538a8d75804a64e3cddb74f22d6-dirty
+    initial: 57018f8e0a95536c0f1d3ba74276fa3be6b243cc
+    name: self
+  - url: file:///root/unfurl_project/
+    revision: 5170415058d610089f2cbae0ae8e8eeabcdea9f5-dirty
+    initial: 82e2a7b7d504259a25f5a8885d5fb27011352802
+  ensembles:
+    localhost:
+      uri: git-local://28e6e41c9d740e74be2df40378dc3825de86caf6:/ensemble.yaml
+      changeId:
+      digest: 76bcd54d9df1fe329146167598429f63bc9d7ec7
+      manifest:
+        file: ensemble/ensemble.yaml
+status:
+  inputs: {}
+  outputs: {}
+  instances:
+    test_remote:
+      template: test_remote
+      priority: required
+      readyState:
+        local: ok
+        state: configured
+      lastConfigChange: A23B6Gti0001
+      created: A23B61Gy0001
+lastJob:
+  changeId: A23B6Gti0000
+  startTime: 2022-03-11-06-16-55-718572
+  previousId: A23B6BB20000
+  workflow: deploy
+  options: {}
+  summary: 1 tasks (1 changed, 1 ok, 0 failed, 0 unknown, 0 skipped)
+  startCommit: fe3c593b655c1538a8d75804a64e3cddb74f22d6
+  specDigest: 9cffab89014bb7d5ac4c766b46ce72d25c35cf94
+  priority: required
+  readyState:
+    local: ok
+  changelog: jobs/job2022-03-11-06-16-55-718572.yaml
+jobsLog: jobs.tsv
